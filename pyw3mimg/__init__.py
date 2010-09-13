@@ -30,7 +30,7 @@ class W3MImageDisplay(object):
         """
         Arguments:
         - `n`: image index(?) n >= 1
-        - `x`:
+        - `x`: 
         - `y`:
         - `w`:
         - `h`:
@@ -69,6 +69,11 @@ class W3MImageDisplay(object):
         self._proc.stdout.readline()
 
     def get_size(self, path):
+        """
+        get size of image
+        Arguments:
+        - `path`: path of image file
+        """
         self.write('5;%s\n' % path)
         wh = self._proc.stdout.readline().split(' ')
         return (int(wh[0]), int(wh[1]))
